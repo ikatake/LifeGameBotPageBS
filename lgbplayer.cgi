@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 use FindBin;
-use lib "/home/ikatake/local/twlg/extlib/lib/perl5", "home/ikatake/local/twlg/extlib/lib/perl5/i386-freebsd-64int";
+use lib "/home/ikatake/local/bslg/extlib/lib/perl5", "home/ikatake/local/bslg/extlib/lib/perl5/i386-freebsd-64int";
 use CGI;
 use JSON;
 
@@ -29,7 +29,7 @@ sub reload {
 }
 sub jump {
 	my $state_str = "";
-	my $fname = '/home/ikatake/www/wetsteam/lifegamebot/stateLogs/';
+	my $fname = '/home/ikatake/www/wetsteam/LifeGameBotBS/stateLogs/';
 	my $str = "";
 	my $step = 0;
 	my $gene = 0;
@@ -77,11 +77,11 @@ sub jump {
 }
 sub measure {
 	my $state_str = "";
-	my $fname = "/home/ikatake/local/twlg/state.txt";
+	my $fname = "/home/ikatake/local/bslg/state.txt";
 	my $step = 0;
 	my $gene = 0;
 	my @arlen = ();
-	my $bdname = '/home/ikatake/www/wetsteam/lifegamebot/stateLogs/';
+	my $bdname = '/home/ikatake/www/wetsteam/LifeGameBotBS/stateLogs/';
 	my $dname = "";
 	my $str = "";
 	my @directory;
@@ -115,7 +115,7 @@ sub measure {
 }
 sub load_current {
 	my $state_str = "";
-	my $fname = "/home/ikatake/local/twlg/state.txt";
+	my $fname = "/home/ikatake/local/bslg/state.txt";
 	my $str = "";
 	my $step = 0;
 	my $gene = 0;
@@ -138,7 +138,7 @@ sub load_current {
 	close $fh;
 
 	#世代交代時(status.txtが空でない)はstepを1個引く。
-	if(-s "/home/ikatake/local/twlg/status.txt") {
+	if(-s "/home/ikatake/local/bslg/status.txt") {
 		$step--;
 	}
 	
