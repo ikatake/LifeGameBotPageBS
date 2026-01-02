@@ -7,7 +7,7 @@ require_relative './draw_rmagick.rb'
 require 'rmagick'
 require 'cgi'
 
-def draw_handkerchief(file_name, run, step, color, state)
+def draw_handkerchief(file_name, run, gene, color, state)
   #set image file size
   margin = 320
   cell_margin = 20

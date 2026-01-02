@@ -7,7 +7,7 @@ var ancImg;
 var arlen;
 var pauseState, repeatState, shuffleState;
 var intvID;
-var elTwtStep, elTwtGene, elPlayButton, elRepeatButton, elShuffleButton;
+var elTwtGene, elTwtRun, elPlayButton, elRepeatButton, elShuffleButton;
 var elPlayButtonImage, elShuffleButtonImage, elRepeatButtonImage;
 var shirtColor;
 //ページ読み込み時の処理を行う。
@@ -20,8 +20,8 @@ function proc_onload() {
 	var div = document.createElement('div');
 	divNode = handleContent.appendChild(div);
 	*/
-	elTwtStep = document.getElementById('tweet_step_pb');
 	elTwtGene = document.getElementById('tweet_gene_pb');
+	elTwtRun = document.getElementById('tweet_run_pb');
 	ancImg = document.getElementById('stateimg');
 	elPlayButton = document.getElementById('play');
 	elRepeatButton = document.getElementById('repeat');
@@ -48,62 +48,62 @@ function proc_onload_measure() {
 function t_shirt_pb(color) {
 	shirtColor = color;
 	var run = parseInt(getValue('run'));
-	var step = parseInt(getValue('step'));
+	var gene = parseInt(getValue('gene'));
 	var add = "product.rb?material=t_shirt&run=" + run;
-	add = add + "&step=" + step + "&color=" + color;
+	add = add + "&gene=" + gene + "&color=" + color;
 	window.open(add, "t_shirt.rb");
 /*
 	req = new XMLHttpRequest();
 	req.onreadystatechange = readDataWear;
-	req.open("get", pathCgi+"?call=jump&run="+run+"&step="+step, true);
+	req.open("get", pathCgi+"?call=jump&run="+run+"&gene="+gene, true);
 	req.send("");
 */
 }
 function sticker_pb(color) {
 	var run = parseInt(getValue('run'));
-	var step = parseInt(getValue('step'));
+	var gene = parseInt(getValue('gene'));
 	var add = "product.rb?material=sticker&run=" + run;
-	add = add + "&step=" + step + "&color=" + color;
+	add = add + "&gene=" + gene + "&color=" + color;
 	window.open(add, "sticker.rb");
 }
 function can_badge_pb(color) {
 	var run = parseInt(getValue('run'));
-	var step = parseInt(getValue('step'));
+	var gene = parseInt(getValue('gene'));
 	var add = "product.rb?material=can_badge&run=" + run;
-	add = add + "&step=" + step + "&color=" + color;
+	add = add + "&gene=" + gene + "&color=" + color;
 	window.open(add, "can_badge.rb");
 }
 function handkerchief_pb(color) {
 	var run = parseInt(getValue('run'));
-	var step = parseInt(getValue('step'));
+	var gene = parseInt(getValue('gene'));
 	var add = "product.rb?material=handkerchief&run=" + run;
-	add = add + "&step=" + step + "&color=" + color;
+	add = add + "&gene=" + gene + "&color=" + color;
 	window.open(add, "handkerchief.rb");
 }
 function hoodie_pb(color) {
 	var run = parseInt(getValue('run'));
-	var step = parseInt(getValue('step'));
+	var gene = parseInt(getValue('gene'));
 	var add = "product.rb?material=hoodie&run=" + run;
-	add = add + "&step=" + step + "&color=" + color;
+	add = add + "&gene=" + gene + "&color=" + color;
 	window.open(add, "hoodie.rb");
 }
 function jump() {
 	var run = parseInt(getValue('run'));
-	var step = parseInt(getValue('step'));
-	if( jump2(run, step) == -1){
+	var gene = parseInt(getValue('gene'));
+	if( jump2(run, gene) == -1){
 //		alert("shit!");
 	}
 }
-function jump2(run, step) {
-	if( isExist(run, step) != true ) {
+function jump2(run, gene) {
+	if( isExist(run, gene) != true ) {
 		return -1;	
 	}
 	obj.run = run;
-	obj.step = step;
-	setImg(run, step);
-	setTweetButton(run, step);
+	obj.gene = gene;
+	setImg(run, gene);
+	setTweetButton(run, gene);
 	setValue('run', obj.run);
-	setValue('step', obj.step);
+	setValue('gene', obj.gene);
 	return 0;
 }
 function play() {
@@ -114,8 +114,8 @@ function play() {
 	}
 }
 function increase() {
-	if(obj.step < (arlen[obj.run] - 1) ) {//今のstepはケツではない
-		jump2(obj.run, obj.step+1);
+	if(obj.gene < (arlen[obj.run] - 1) ) {//今のgeneはケツではない
+		jump2(obj.run, obj.gene+1);
 	} else {//ケツです。
 		if(repeatState == "one") {//repeatoneで繰り返し。
 			jump2(obj.run, 0);
@@ -127,7 +127,7 @@ function increase() {
 }
 function prev() {
 	setPauseState(true);
-	if(obj.step == 0) {
+	if(obj.gene == 0) {
 		var run = obj.run;
 		while(1) {
 			run--;
@@ -233,20 +233,20 @@ function readData() {
 		newest = JSON.parse(req.responseText);
 		console.log(newest);
 		newest.run = parseInt(newest.run);
-		newest.step = parseInt(newest.step);
+		newest.gene = parseInt(newest.gene);
 		//表示用文字列を生成
 		/*
 		var str = "run:" + newest.run + "  ";
-		str += "step:" + newest.step;
+		str += "gene:" + newest.gene;
 		var div = document.createElement('div');
 		handleContent.removeChild(divNode);
 		divNode = handleContent.appendChild(div);
 		div.innerHTML = str;
 		*/
 		setValue('run', newest.run);
-		setValue('step', newest.step);
+		setValue('gene', newest.gene);
 		arlen = new Array();
-		arlen[newest.run] = newest.step;
+		arlen[newest.run] = newest.gene;
 		setGifs();
 		proc_onload_measure();
 	}
@@ -260,15 +260,15 @@ function readDataMeasure() {
 			var len = parseInt(tmp_obj[ii].length);
 			arlen[run] = len;
 		}
-		jump2(parseInt(newest.run), parseInt(newest.step));
+		jump2(parseInt(newest.run), parseInt(newest.gene));
 	}
 }
-function setImg(run, step) {
+function setImg(run, gene) {
 	var fname = "http://www.wetsteam.org/LifeGameBotBS/stateLogs/";
 	fname += ("00000000" + run).slice(-8) + "/"; 
-	fname += ("00000000" + step).slice(-8) + ".svg";
+	fname += ("00000000" + gene).slice(-8) + ".svg";
 	ancImg.setAttribute("src", fname);
-	ancImg.setAttribute("alt", "r:" + run + ", s:" + step);
+	ancImg.setAttribute("alt", "r:" + run + ", g:" + gene);
 }
 function setGifs()
 {
@@ -317,50 +317,50 @@ function setValue(element, value) {
 	return 0;
 }
 /*
-	inExist : 指定のrun, stepがstateLogにあるか確認する。
-	run, step : 実行回数とステップ数の数値
+	inExist : 指定のrun, geneがstateLogにあるか確認する。
+	run, gene : 実行回数と世代数の数値
 	戻り値 : 存在していればtrue。無ければfalse
 */
-function isExist(run, step) {
+function isExist(run, gene) {
 	if(run > newest.run) {
 		return false;
 	}
-	if(step < arlen[run]) {
+	if(gene < arlen[run]) {
 		return true;
 	} else {
 		return false;
 	}
 	return undefined;
 }
-function setTweetButton(run, step) {
+function setTweetButton(run, gene) {
 	var txHref = "https://twitter.com/intent/tweet?source=webclient&amp;";
-	var txStep = txHref + "text=LifeGameBot(@_lifegamebot)%0d%0a";
-	var txRun = txStep;
+	var txGene = txHref + "text=LifeGameBot(@_lifegamebot)%0d%0a";
+	var txRun = txGene;
 	var strAdd  = "http://www.wetsteam.org/LifeGameBotBS/";
-	var strStep = ("00000000" + step).slice(-8);
+	var strGene = ("00000000" + gene).slice(-8);
 	var strRun = ("00000000" + run).slice(-8);
-	txStep += "run:" + run + " step:" + step + "%0d%0a";
+	txGene += "run:" + run + " gene:" + gene + "%0d%0a";
 	txRun += "run:" + run + "%0d%0a";
-	txStep += strAdd + "stateLogs/" + strRun + "/" + strStep + ".svg%0d%0a";
+	txGene += strAdd + "stateLogs/" + strRun + "/" + strGene + ".svg%0d%0a";
 	txRun += strAdd + "gifs/" + strRun + ".gif";
-	txStep = "window\.open\(\'" + txStep + "\'\)";
+	txGene = "window\.open\(\'" + txGene + "\'\)";
 	txRun = "window\.open\(\'" + txRun + "\'\)";
-	if(elTwtStep != undefined) {
-		elTwtStep.setAttribute('onclick', txStep);
-	}
 	if(elTwtGene != undefined) {
-		elTwtGene.setAttribute('onclick', txRun);
+		elTwtGene.setAttribute('onclick', txGene);
+	}
+	if(elTwtRun != undefined) {
+		elTwtRun.setAttribute('onclick', txRun);
 		if(run >= newest.run) {
-			elTwtGene.setAttribute('disabled', "disabled");
+			elTwtRun.setAttribute('disabled', "disabled");
 		} else {
-			elTwtGene.removeAttribute('disabled');
+			elTwtRun.removeAttribute('disabled');
 
 		}
 	}
 }
 function State() {
 	this.run = undefined;
-	this.step = undefined;
+	this.gene = undefined;
 }
 //ページ読み込み時にproc_onloadを起動。
 window.onload=proc_onload;
