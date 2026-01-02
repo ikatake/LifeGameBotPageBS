@@ -41,32 +41,32 @@ def cgi_input(cgi)
       color = "white"
     end
   end
-  #read argument (gene and step)
+  #read argument (run and step)
   
   #set default parameter
   state = get_lastest_state_text
-  arr = get_lastest_gene_step
-  gene = arr[0]
+  arr = get_lastest_run_step
+  run = arr[0]
   step = arr[1]
-  if (cgi.has_key?('gene'))
-    #min(gene, gene_input) 
-    gene = (gene < cgi['gene'].to_i) ? gene : cgi['gene'].to_i
-    step = measure_gene(gene) 
+  if (cgi.has_key?('run'))
+    #min(run, run_input) 
+    run = (run < cgi['run'].to_i) ? run : cgi['run'].to_i
+    step = measure_run(run) 
     step = (step < cgi['step'].to_i) ? step : cgi['step'].to_i
   end
   if (cgi.has_key?('step'))
     #min(step, step_input)
     step = (step < cgi['step'].to_i) ? step : cgi['step'].to_i
   end
-  state = get_state_text(gene, step)
-	puts gene
+  state = get_state_text(run, step)
+	puts run
 	puts '<br>'
 	puts step
 	puts '<br>'
-	puts is_valid_gene_step?(gene, step) 
+	puts is_valid_run_step?(run, step) 
 	puts '<br>'
 	puts state
 	puts '<br>'
-  arr = [gene, step, state, color]
+  arr = [run, step, state, color]
 
 end

@@ -2,9 +2,9 @@
 
 #ライフゲームbot用の便利関数たち。
 
-def get_state_text(gene, step)
+def get_state_text(run, step)
   # set filename
-  genestr = sprintf("%08d", gene)
+  runstr = sprintf("%08d", run)
   stepstr = sprintf("%08d", step)
   filename = "/home/ikatake/www/wetsteam/LifeGameBotBS/stateLogs/"
   filename = filename + genestr  + "\/" + stepstr + ".txt"
@@ -20,17 +20,17 @@ def get_state_text(gene, step)
   return r
 end
 
-def get_lastest_gene_step()
+def get_lastest_run_step()
   filename = "/home/ikatake/local/bslg/state.txt"
   file = File.open(filename)
   text = file.read
   file.close
   lines = text.split(/\n/)
   arr = lines[10].split(/\t/)
-  gene = arr[1].to_i
+  run = arr[1].to_i
   arr = lines[11].split(/\t/)
   step = arr[1].to_i
-  arr = [gene, step]
+  arr = [run, step]
   return arr
 end
 
@@ -47,30 +47,30 @@ def get_lastest_state_text()
   return r
 end
 
-def is_valid_gene_step?(gene, step)
-  arr = get_lastest_gene_step()
-  cur_gene = arr[0]
+def is_valid_run_step?(run, step)
+  arr = get_lastest_run_step()
+  cur_run = arr[0]
   cur_step = arr[1]
-  if gene > cur_gene
+  if run > cur_run
     return false
   end
-  if gene == cur_gene
+  if run == cur_run
     if step > cur_step
       return false
     else
       return true
     end
   end
-  if step > measure_gene(gene)
+  if step > measure_run(run)
     return false
   else
     return true
   end
 end
 
-def measure_gene(gene)
+def measure_run(run)
   dir_path = '/home/ikatake/www/wetsteam/LifeGameBotBS/stateLogs/'
-  dir_path << sprintf("%08d/", gene) 
+  dir_path << sprintf("%08d/", run) 
   if ( FileTest.exist?(dir_path) && FileTest.directory?(dir_path) ) == false
     return -1;
   end

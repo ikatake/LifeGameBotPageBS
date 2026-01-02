@@ -7,7 +7,7 @@ require_relative './draw_rmagick.rb'
 require 'rmagick'
 include Math
 
-def draw_can_badge(file_name, gene, step, color, state)
+def draw_can_badge(file_name, run, step, color, state)
   #set image file size
   img_size = 992   #img canvas size[px] (both width and height)
   field_size = 420 #
@@ -46,7 +46,7 @@ def draw_can_badge(file_name, gene, step, color, state)
   theta0 = PI / 2 * 0
   annotate_on_arc(img, str, width_char, radius, img_size / 2, img_size / 2, 
     theta0, font, color_front, 'transparent', font_size)
-  str = "gene:#{gene}"
+  str = "run:#{run}"
   theta0 = PI / 2 * 2
   annotate_on_arc(img, str, width_char, radius, img_size / 2, img_size / 2, 
     theta0, font, color_front, 'transparent', font_size)
