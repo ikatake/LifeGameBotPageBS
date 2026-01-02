@@ -13,13 +13,13 @@ include Math
 
 cgi = CGI.new
 arr = cgi_input(cgi)
-gene = arr[0]
+run = arr[0]
 step = arr[1]
 state = arr[2]
 color = arr[3]
 
 #make iamge file
-file_name = "t_shirt_img/" + gene.to_s + "_" + step.to_s + "_"
+file_name = "t_shirt_img/" + run.to_s + "_" + step.to_s + "_"
 file_name += Time.now.to_i.to_s + ".png"
 	p file_name
 
@@ -46,7 +46,7 @@ y_bottom_text1 = y_cells + cell_field_size + space_bottom_text
 y_bottom_text2 = y_bottom_text1 + height_text
 #set image width
 str_top = '@_lifegamebot'
-str_bottom1 = "gene:#{gene}"
+str_bottom1 = "run:#{run}"
 str_bottom2 = "step:#{step}"
 str_length = [str_top.length, str_bottom1.length, str_bottom2.length].max
 str_width = width_char * str_length + margin_right
@@ -75,7 +75,7 @@ img.write(file_name)
 
 img_address = "http://www.wetsteam.org/lifegamebot/" + file_name
 print %Q{<span style="color:white"}
-ret = suzuri( img_address, gene, step, color, "t_shirt")
+ret = suzuri( img_address, run, step, color, "t_shirt")
 print %Q{</span>}
 p ret
 if(ret[0] == "3" || ret[0] == "4" || ret[0] == "5")

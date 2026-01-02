@@ -2,7 +2,7 @@
 <div id="lgbplayer" align="center">
 life game bot player<br />
 <img id="stateimg" width="100px" height="100px" /><br />
-gene:<input type="text" id="gene">
+run:<input type="text" id="run">
 step:<input type="text" id="step">
 <input type="button" id="jump" value="jump" onclick="jump()">
 <br />

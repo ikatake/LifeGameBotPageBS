@@ -7,7 +7,7 @@ require_relative './draw_rmagick.rb'
 require 'rmagick'
 require 'cgi'
 
-def draw_t_shirt(file_name, gene, step, color, state)
+def draw_t_shirt(file_name, run, step, color, state)
   #set image file size
   cell_size = 100
   margin_top = 100
@@ -31,7 +31,7 @@ def draw_t_shirt(file_name, gene, step, color, state)
   y_bottom_text2 = y_bottom_text1 + height_text
   #set image width
   str_top = '@_lifegamebot'
-  str_bottom1 = "gene:#{gene}"
+  str_bottom1 = "run:#{run}"
   str_bottom2 = "step:#{step}"
   str_length = [str_top.length, str_bottom1.length, str_bottom2.length].max
   str_width = width_char * str_length + margin_right

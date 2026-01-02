@@ -13,13 +13,13 @@ include Math
 
 cgi = CGI.new
 arr = cgi_input(cgi)
-gene = arr[0]
+run = arr[0]
 step = arr[1]
 state = arr[2]
 color = arr[3]
 
 #make iamge file
-file_name = "can_badge_img/" + gene.to_s + "_" + step.to_s + "_"
+file_name = "can_badge_img/" + run.to_s + "_" + step.to_s + "_"
 file_name += Time.now.to_i.to_s + ".png"
 	p file_name
 
@@ -61,7 +61,7 @@ str = "step:#{step}"
 theta0 = PI / 2 * 0
 annotate_on_arc(img, str, width_char, radius, img_size / 2, img_size / 2, 
   theta0, font, color_front, 'transparent', font_size)
-str = "gene:#{gene}"
+str = "run:#{run}"
 theta0 = PI / 2 * 2
 annotate_on_arc(img, str, width_char, radius, img_size / 2, img_size / 2, 
   theta0, font, color_front, 'transparent', font_size)
@@ -74,7 +74,7 @@ img.write(file_name)
 
 img_address = "http://www.wetsteam.org/lifegamebot/" + file_name
 print %Q{<span style="color:white"}
-ret = suzuri( img_address, gene, step, color, "can_badge")
+ret = suzuri( img_address, run, step, color, "can_badge")
 print %Q{</span>}
 p ret
 if(ret[0] == "3" || ret[0] == "4" || ret[0] == "5")

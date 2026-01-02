@@ -12,13 +12,13 @@ require 'chunky_png'
 
 cgi = CGI.new
 arr = cgi_input(cgi)
-gene = arr[0]
+run = arr[0]
 step = arr[1]
 state = arr[2]
 color = arr[3]
 
 #make iamge file
-file_name = "sticker_img/" + gene.to_s + "_" + step.to_s + "_"
+file_name = "sticker_img/" + run.to_s + "_" + step.to_s + "_"
 file_name += Time.now.to_i.to_s + ".png"
 	p file_name
 width = 630
@@ -82,7 +82,7 @@ png.save(file_name)
 
 img_address = "http://www.wetsteam.org/lifegamebot/" + file_name
 print %Q{<span style="color:white"}
-ret = suzuri( img_address, gene, step, color, "sticker")
+ret = suzuri( img_address, run, step, color, "sticker")
 print %Q{</span>}
 p ret
 if(ret[0] == "3" || ret[0] == "4" || ret[0] == "5")

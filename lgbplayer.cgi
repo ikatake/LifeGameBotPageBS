@@ -14,9 +14,9 @@ if($call eq 'reload') {
 	&reload();
 }
 elsif($call eq 'jump') {
-	my $gene = $q->param('gene');
+	my $run = $q->param('run');
 	my $step = $q->param('step');
-	&jump($gene, $step);
+	&jump($run, $step);
 }
 elsif($call eq 'measure') {
 	&measure();
@@ -32,7 +32,7 @@ sub jump {
 	my $fname = '/home/ikatake/www/wetsteam/LifeGameBotBS/stateLogs/';
 	my $str = "";
 	my $step = 0;
-	my $gene = 0;
+	my $run = 0;
 	my $data;
 	$fname .= sprintf("%08d",$_[0]). "/";
 	$fname .= sprintf("%08d",$_[1]). ".txt";
@@ -41,7 +41,7 @@ sub jump {
 		for(my $ii = 0; $ii < 10; $ii++) {
 			$state_str .= "1111111111\n";
 		}
-		$data = {gene => -1, step => -1,state => $state_str,};
+		$data = {run => -1, step => -1,state => $state_str,};
 		print "Content-type: application/json; charset=utf-8\n\n";
 		print encode_json( $data );
 		return;
@@ -59,15 +59,15 @@ sub jump {
 		{
 			$step = int($column[1]);
 		}
-		elsif( $column[0] eq 'gene' )
+		elsif( $column[0] eq 'run' )
 		{
-			$gene = int($column[1]);
+			$run = int($column[1]);
 		}			
 	}
 	close $fh;
 
 	$data = {
-		gene => $gene,
+		run => $run,
 		step => $step,
 		state => $state_str,
 	};
@@ -79,7 +79,7 @@ sub measure {
 	my $state_str = "";
 	my $fname = "/home/ikatake/local/bslg/state.txt";
 	my $step = 0;
-	my $gene = 0;
+	my $run = 0;
 	my @arlen = ();
 	my $bdname = '/home/ikatake/www/wetsteam/LifeGameBotBS/stateLogs/';
 	my $dname = "";
@@ -87,10 +87,10 @@ sub measure {
 	my @directory;
 	my %hash;
 	my $data = &load_current();
-	$gene = $data->{gene};
+	$run = $data->{run};
 	$step = $data->{step};
 	
-	for(my $ii = 1; $ii <= $gene; $ii++) {
+	for(my $ii = 1; $ii <= $run; $ii++) {
 		my $len;
 		$dname = $bdname . sprintf("%08d",$ii) . '/';
 		if(!(-e $dname)) { #file is not exist.
@@ -102,7 +102,7 @@ sub measure {
 			closedir($dh);
 			$len = @directory;
 		}
-		my %hash = ('gene' => $ii, 'length' => $len);
+		my %hash = ('run' => $ii, 'length' => $len);
 		push(@arlen, \%hash );
 	}
 	foreach my $tmp(@arlen) {
@@ -118,7 +118,7 @@ sub load_current {
 	my $fname = "/home/ikatake/local/bslg/state.txt";
 	my $str = "";
 	my $step = 0;
-	my $gene = 0;
+	my $run = 0;
 	my $data;
 	open( my $fh, "<", $fname )
         	or die "Cannot open $fname: $!";
@@ -131,8 +131,8 @@ sub load_current {
 		elsif( $column[0] eq 'step' ) {
 			$step = int($column[1]);
 		}
-		elsif( $column[0] eq 'gene' ) {
-			$gene = int($column[1]);
+		elsif( $column[0] eq 'run' ) {
+			$run = int($column[1]);
 		}			
 	}
 	close $fh;
@@ -143,7 +143,7 @@ sub load_current {
 	}
 	
 	$data = {
-		gene => $gene,
+		run => $run,
 		step => $step,
 		state => $state_str,
 	};
