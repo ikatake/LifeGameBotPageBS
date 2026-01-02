@@ -6,7 +6,7 @@ def get_state_text(gene, step)
   # set filename
   genestr = sprintf("%08d", gene)
   stepstr = sprintf("%08d", step)
-  filename = "/home/ikatake/www/wetsteam/lifegamebot/stateLogs/"
+  filename = "/home/ikatake/www/wetsteam/LifeGameBotBS/stateLogs/"
   filename = filename + genestr  + "\/" + stepstr + ".txt"
   file = File.open(filename)
   text = file.read
@@ -21,7 +21,7 @@ def get_state_text(gene, step)
 end
 
 def get_lastest_gene_step()
-  filename = "/home/ikatake/local/twlg/state.txt"
+  filename = "/home/ikatake/local/bslg/state.txt"
   file = File.open(filename)
   text = file.read
   file.close
@@ -35,7 +35,7 @@ def get_lastest_gene_step()
 end
 
 def get_lastest_state_text()
-  filename = "/home/ikatake/local/twlg/state.txt"
+  filename = "/home/ikatake/local/bslg/state.txt"
   file = File.open(filename)
   text = file.read
   file.close
@@ -69,7 +69,7 @@ def is_valid_gene_step?(gene, step)
 end
 
 def measure_gene(gene)
-  dir_path = '/home/ikatake/www/wetsteam/lifegamebot/stateLogs/'
+  dir_path = '/home/ikatake/www/wetsteam/LifeGameBotBS/stateLogs/'
   dir_path << sprintf("%08d/", gene) 
   if ( FileTest.exist?(dir_path) && FileTest.directory?(dir_path) ) == false
     return -1;

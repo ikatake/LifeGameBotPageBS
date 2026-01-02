@@ -5,7 +5,7 @@ require 'File'
 #指定されたperiodの長さを返す。
 #無い場合は-1を返す。
 def measure(age)
-  parent_dir_name = "/home/ikatake/www/wetsteam/lifegamebot/stateLogs/"
+  parent_dir_name = "/home/ikatake/www/wetsteam/LifeGameBotBS/stateLogs/"
   dir_name = File.join(parent_dir_name, "%08d" % age)
   return_value = 0;
   unless(FileTest.exit(dir_name))
