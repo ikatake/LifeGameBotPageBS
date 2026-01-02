@@ -47,10 +47,10 @@
 	</div>
 	<div id="lgbp_controlbutton">
 		<ul>
-			<li id="prev" onclick="prev()"><img src="./lgbpimg/prevgene.png" width="24px" height="24px" alt="前の世代" title="前の世代" /></li>
+			<li id="prev" onclick="prev()"><img src="./lgbpimg/prevRun.png" width="24px" height="24px" alt="前の回" title="前の回" /></li>
 			<li id="play" onclick="play()"><img src="./lgbpimg/play.png" width="24px" height="24px" alt="再生/一時停止" title="停止中" /></li>
-		<li id="next_gene" onclick="increase()"><img src="./lgbpimg/nextStep.png" width="24px" height="24px" alt="次のステップ" title="次のステップ" /></li>
-		<li id="next_run" onclick="next()"><img src="./lgbpimg/nextRun.png" width="24px" height="24px" alt="次の世代" title="次の世代" /></li>
+		<li id="next_gene" onclick="increase()"><img src="./lgbpimg/nextStep.png" width="24px" height="24px" alt="次の世代" title="次の世代" /></li>
+		<li id="next_run" onclick="next()"><img src="./lgbpimg/nextRun.png" width="24px" height="24px" alt="次の回" title="次の回" /></li>
 			<li id="shuffle" onclick="shuffle()"><img src="./lgbpimg/shuffle.png" width="24px" height="24px" alt="シャッフルスイッチ" title="シャッフル　オフ" /></li>
 			<li id="repeat" onclick="repeat()"><img src="./lgbpimg/repeat.png" width="24px" height="24px" alt="リピートスイッチ" title="リピート　オフ" /></li>
 		</ul>
@@ -59,9 +59,8 @@
 <h2 id="概要">概要</h2>
 <ul>
 <li><a href="https://twitter.com/_lifegamebot">Twitterでライフゲームし続けるbotです。</a></li>
-<li>1ステップ/15分、10x10セル。</li>
-<li>ツイート最終行のgは世代で初期化すると+1されます。sはステップ数で、初期化すると0に戻ります。</li>
-<li><a href="https://twitter.com/intent/tweet?source=webclient&amp;text=%40_lifegamebot+init">init</a>ってreplyを受け取ると、初期化します。</li>
+<li>1世代/15分、10x10セル。</li>
+<li>ツイート最終行のrunは実行回で初期化すると+1されます。geneは世代で、初期化すると0に戻ります。</li>
 </ul>
 <h2 id="ライフゲームとは">ライフゲームとは</h2>
 <ul>
@@ -75,7 +74,7 @@
 <li>新機能などは<a href="http://ikatake.hateblo.jp/archive/category/%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B2%E3%83%BC%E3%83%A0bot">ブログ</a>で告知しています。</li>
 <li>このページのソースは<a href="https://github.com/ikatake/lifegamebotpage">github</a>に於いて保管しています。</li>
 </ul>
-<h2 id="直近5世代のgif動画">直近5世代のGIF動画</h2>
+<h2 id="直近5回のgif動画">直近5回のGIF動画</h2>
 <p id="newgifs">
 	<img width="100" height="100" src="./lgbpimg/dummy.png" alt="dummyimage" title="dummyimage" />
 	<img width="100" height="100" src="./lgbpimg/dummy.png" alt="dummyimage" title="dummyimage" />
