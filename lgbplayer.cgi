@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 use FindBin;
-use lib "/home/ikatake/local/bslg/extlib/lib/perl5", "/home/ikatake/local/bslg/extlib/lib/perl5/i386-freebsd-64int";
+use lib "/home/ikatake/local/twlg/extlib/lib/perl5", "home/ikatake/local/twlg/extlib/lib/perl5/i386-freebsd-64int";
 use CGI;
 use JSON;
 
