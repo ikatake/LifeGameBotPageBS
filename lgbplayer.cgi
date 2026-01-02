@@ -137,10 +137,10 @@ sub load_current {
 	}
 	close $fh;
 
-	#世代交代時(status.txtが空でない)はgeneを1個引く。
-	if(-s "/home/ikatake/local/bslg/status.txt") {
-		$gene--;
-	}
+	#世代交代時(status.txtが空でない)はgeneを1個引く。→status不使用のため死文化
+	#if(-s "/home/ikatake/local/bslg/status.txt") {
+	#	$gene--;
+	#}
 	
 	$data = {
 		run => $run,

@@ -15,8 +15,8 @@ gene:<input type="text" id="gene">
 </div>
 ## 概要
 + [Twitterでライフゲームし続けるbotです。](https://twitter.com/_lifegamebot)
-+ 1ステップ/15分、10x10セル。
-+ ツイート最終行のgは世代で初期化すると+1されます。sはステップ数で、初期化すると0に戻ります。
++ 1世代/15分、10x10セル。
++ ツイート最終行のrunは実行回で初期化すると+1されます。geneは世代で、初期化すると0に戻ります。
 + [init](https://twitter.com/intent/tweet?source=webclient&text=%40_lifegamebot+init)ってreplyを受け取ると、初期化します。
 
 ## ライフゲームとは
@@ -27,6 +27,6 @@ gene:<input type="text" id="gene">
 ## 管理
 ライフゲームbotは[いかたけ](http://ikatake.hateblo.jo)([@ikatake](https://twitter.com/ikatake/))が作成し、[しめり蒸気](http://wetsteam.org/)によって管理されています。
 
-## 直近5世代のGIF動画
+## 直近5回のGIF動画
 <p id="newgifs"> </p>
 
