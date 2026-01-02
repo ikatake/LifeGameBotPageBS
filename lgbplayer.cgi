@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 use FindBin;
-use lib "/home/ikatake/local/bslg/extlib/lib/perl5", "home/ikatake/local/bslg/extlib/lib/perl5/i386-freebsd-64int";
+use lib "/home/ikatake/local/bslg/extlib/lib/perl5", "/home/ikatake/local/bslg/extlib/lib/perl5/i386-freebsd-64int";
 use CGI;
 use JSON;
 
@@ -120,32 +120,39 @@ sub load_current {
 	my $gene = 0;
 	my $run = 0;
 	my $data;
+	
+	# デバッグ用ログファイル
+	open(my $debug_fh, ">", "/home/ikatake/local/bslg/debug.log");
+	
 	open( my $fh, "<", $fname )
         	or die "Cannot open $fname: $!";
 	while( my $line = readline($fh)) {
-#	        $line = decode( 'UTF-8', $line);
+		print $debug_fh "Line: [$line]\n";
 		my @column = split(/\t/, $line);
+		print $debug_fh "Column count: " . ($#column + 1) . ", Index: $#column\n";
+		print $debug_fh "Column[0]: [$column[0]]\n" if defined $column[0];
+		print $debug_fh "Column[1]: [$column[1]]\n" if defined $column[1];
+		
 		if( $#column != 1 ) {#状態の読込み
 			$state_str .= $line;
+			print $debug_fh "-> State line\n";
 		}	
 		elsif( $column[0] eq 'gene' ) {
 			$gene = int($column[1]);
+			print $debug_fh "-> Gene: $gene\n";
 		}
 		elsif( $column[0] eq 'run' ) {
 			$run = int($column[1]);
+			print $debug_fh "-> Run: $run\n";
 		}			
 	}
 	close $fh;
+	close $debug_fh;
 
-	#世代交代時(status.txtが空でない)はgeneを1個引く。→status不使用のため死文化
-	#if(-s "/home/ikatake/local/bslg/status.txt") {
-	#	$gene--;
-	#}
-	
 	$data = {
 		run => $run,
 		gene => $gene,
 		state => $state_str,
 	};
 	return $data;
-}	
+}

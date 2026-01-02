@@ -220,7 +220,7 @@ function setRepeatState(_repeatState) {
 	} else if(repeatState == "one") {
 		elRepeatButton.style.backgroundColor = "#2E8B57";
 		elRepeatButtonImage.setAttribute("src", "./lgbpimg/repeat1.png");
-		elRepeatButtonImage.setAttribute("title", "リピート(世代)");
+		elRepeatButtonImage.setAttribute("title", "リピート(run内)");
 	} else {
 		elRepeatButton.style.backgroundColor = "#FFFFFF";
 		elRepeatButtonImage.setAttribute("src", "./lgbpimg/repeat.png");
@@ -318,7 +318,7 @@ function setValue(element, value) {
 }
 /*
 	inExist : 指定のrun, geneがstateLogにあるか確認する。
-	run, gene : 実行回数と世代数の数値
+	run, gene : 実行回と世代数の数値
 	戻り値 : 存在していればtrue。無ければfalse
 */
 function isExist(run, gene) {
