@@ -2,12 +2,12 @@
 
 #ライフゲームbot用の便利関数たち。
 
-def get_state_text(run, step)
+def get_state_text(run, gene)
   # set filename
   runstr = sprintf("%08d", run)
-  stepstr = sprintf("%08d", step)
+  genestr = sprintf("%08d", gene)
   filename = "/home/ikatake/www/wetsteam/LifeGameBotBS/stateLogs/"
-  filename = filename + genestr  + "\/" + stepstr + ".txt"
+  filename = filename + runstr  + "\/" + genestr + ".txt"
   file = File.open(filename)
   text = file.read
   file.close
@@ -20,7 +20,7 @@ def get_state_text(run, step)
   return r
 end
 
-def get_lastest_run_step()
+def get_lastest_run_gene()
   filename = "/home/ikatake/local/bslg/state.txt"
   file = File.open(filename)
   text = file.read
@@ -29,8 +29,8 @@ def get_lastest_run_step()
   arr = lines[10].split(/\t/)
   run = arr[1].to_i
   arr = lines[11].split(/\t/)
-  step = arr[1].to_i
-  arr = [run, step]
+  gene = arr[1].to_i
+  arr = [run, gene]
   return arr
 end
 
@@ -47,21 +47,21 @@ def get_lastest_state_text()
   return r
 end
 
-def is_valid_run_step?(run, step)
-  arr = get_lastest_run_step()
+def is_valid_run_gene?(run, gene)
+  arr = get_lastest_run_gene()
   cur_run = arr[0]
-  cur_step = arr[1]
+  cur_gene = arr[1]
   if run > cur_run
     return false
   end
   if run == cur_run
-    if step > cur_step
+    if gene > cur_gene
       return false
     else
       return true
     end
   end
-  if step > measure_run(run)
+  if gene > measure_run(run)
     return false
   else
     return true

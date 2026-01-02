@@ -15,8 +15,8 @@ if($call eq 'reload') {
 }
 elsif($call eq 'jump') {
 	my $run = $q->param('run');
-	my $step = $q->param('step');
-	&jump($run, $step);
+	my $gene = $q->param('gene');
+	&jump($run, $gene);
 }
 elsif($call eq 'measure') {
 	&measure();
@@ -31,7 +31,7 @@ sub jump {
 	my $state_str = "";
 	my $fname = '/home/ikatake/www/wetsteam/LifeGameBotBS/stateLogs/';
 	my $str = "";
-	my $step = 0;
+	my $gene = 0;
 	my $run = 0;
 	my $data;
 	$fname .= sprintf("%08d",$_[0]). "/";
@@ -41,7 +41,7 @@ sub jump {
 		for(my $ii = 0; $ii < 10; $ii++) {
 			$state_str .= "1111111111\n";
 		}
-		$data = {run => -1, step => -1,state => $state_str,};
+		$data = {run => -1, gene => -1,state => $state_str,};
 		print "Content-type: application/json; charset=utf-8\n\n";
 		print encode_json( $data );
 		return;
@@ -55,9 +55,9 @@ sub jump {
 		{#状態の読込み
 			$state_str .= $line;
 		}	
-		elsif( $column[0] eq 'step' )
+		elsif( $column[0] eq 'gene' )
 		{
-			$step = int($column[1]);
+			$gene = int($column[1]);
 		}
 		elsif( $column[0] eq 'run' )
 		{
@@ -68,7 +68,7 @@ sub jump {
 
 	$data = {
 		run => $run,
-		step => $step,
+		gene => $gene,
 		state => $state_str,
 	};
 
@@ -78,7 +78,7 @@ sub jump {
 sub measure {
 	my $state_str = "";
 	my $fname = "/home/ikatake/local/bslg/state.txt";
-	my $step = 0;
+	my $gene = 0;
 	my $run = 0;
 	my @arlen = ();
 	my $bdname = '/home/ikatake/www/wetsteam/LifeGameBotBS/stateLogs/';
@@ -88,7 +88,7 @@ sub measure {
 	my %hash;
 	my $data = &load_current();
 	$run = $data->{run};
-	$step = $data->{step};
+	$gene = $data->{gene};
 	
 	for(my $ii = 1; $ii <= $run; $ii++) {
 		my $len;
@@ -117,7 +117,7 @@ sub load_current {
 	my $state_str = "";
 	my $fname = "/home/ikatake/local/bslg/state.txt";
 	my $str = "";
-	my $step = 0;
+	my $gene = 0;
 	my $run = 0;
 	my $data;
 	open( my $fh, "<", $fname )
@@ -128,8 +128,8 @@ sub load_current {
 		if( $#column != 1 ) {#状態の読込み
 			$state_str .= $line;
 		}	
-		elsif( $column[0] eq 'step' ) {
-			$step = int($column[1]);
+		elsif( $column[0] eq 'gene' ) {
+			$gene = int($column[1]);
 		}
 		elsif( $column[0] eq 'run' ) {
 			$run = int($column[1]);
@@ -137,14 +137,14 @@ sub load_current {
 	}
 	close $fh;
 
-	#世代交代時(status.txtが空でない)はstepを1個引く。
+	#世代交代時(status.txtが空でない)はgeneを1個引く。
 	if(-s "/home/ikatake/local/bslg/status.txt") {
-		$step--;
+		$gene--;
 	}
 	
 	$data = {
 		run => $run,
-		step => $step,
+		gene => $gene,
 		state => $state_str,
 	};
 	return $data;

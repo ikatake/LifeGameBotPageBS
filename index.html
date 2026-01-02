@@ -23,7 +23,7 @@
 		<div id="lgbp_counter">
 			<ul>
 				<li>run:<input type="text" id="run" /></li>
-				<li>step:<input type="text" id="step" /></li>
+				<li>gene:<input type="text" id="gene" /></li>
 				<li><br /><input type="button" id="jump" value="jump" onclick="jump()"></li>
 			</ul>
 		</div>
@@ -49,8 +49,8 @@
 		<ul>
 			<li id="prev" onclick="prev()"><img src="./lgbpimg/prevgene.png" width="24px" height="24px" alt="前の世代" title="前の世代" /></li>
 			<li id="play" onclick="play()"><img src="./lgbpimg/play.png" width="24px" height="24px" alt="再生/一時停止" title="停止中" /></li>
-			<li id="next_step" onclick="increase()"><img src="./lgbpimg/nextstep.png" width="24px" height="24px" alt="次のステップ" title="次のステップ" /></li>
-			<li id="next_gene" onclick="next()"><img src="./lgbpimg/nextgene.png" width="24px" height="24px" alt="次の世代" title="次の世代" /></li>
+		<li id="next_gene" onclick="increase()"><img src="./lgbpimg/nextStep.png" width="24px" height="24px" alt="次のステップ" title="次のステップ" /></li>
+		<li id="next_run" onclick="next()"><img src="./lgbpimg/nextRun.png" width="24px" height="24px" alt="次の世代" title="次の世代" /></li>
 			<li id="shuffle" onclick="shuffle()"><img src="./lgbpimg/shuffle.png" width="24px" height="24px" alt="シャッフルスイッチ" title="シャッフル　オフ" /></li>
 			<li id="repeat" onclick="repeat()"><img src="./lgbpimg/repeat.png" width="24px" height="24px" alt="リピートスイッチ" title="リピート　オフ" /></li>
 		</ul>

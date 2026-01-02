@@ -50,45 +50,45 @@ if (cgi.has_key?('color')  == false)
 else
   color = cgi["color"]
 end
-#read argument (run and step)
+#read argument (run and gene)
 #set default parameter
 state = get_lastest_state_text
-arr = get_lastest_run_step
+arr = get_lastest_run_gene
 run = arr[0]
-step = arr[1]
+gene = arr[1]
 if (cgi.has_key?("run"))
   #min(run, run_input) 
   run = (run < cgi["run"].to_i) ? run : cgi["run"].to_i
-  step = measure_run(run) - 1
+  gene = measure_run(run) - 1
 end
-if (cgi.has_key?("step"))
-  #min(step, step_input)
-  step = (step < cgi["step"].to_i) ? step : cgi["step"].to_i
+if (cgi.has_key?("gene"))
+  #min(gene, gene_input)
+  gene = (gene < cgi["gene"].to_i) ? gene : cgi["gene"].to_i
 end
-state = get_state_text(run, step)
-	puts "#{material}<br>#{run}<br>#{step}<br>#{color}<br>"
-	puts "#{is_valid_run_step?(run, step)}<br>"
+state = get_state_text(run, gene)
+	puts "#{material}<br>#{run}<br>#{gene}<br>#{color}<br>"
+	puts "#{is_valid_run_gene?(run, gene)}<br>"
 	puts "#{state}<br>"
-file_name = "product_img/" + material + "_" + run.to_s + "_" + step.to_s + "_"
+file_name = "product_img/" + material + "_" + run.to_s + "_" + gene.to_s + "_"
 file_name += Time.now.to_i.to_s + ".png"
 	p file_name
 img_address = "http://www.wetsteam.org/lifegamebot/" + file_name
-hs = {"run" => run, "step" => step, "state" => state,
+hs = {"run" => run, "gene" => gene, "state" => state,
   "color" => color, "material" => material}
 if (material == "sticker")
-  draw_sticker(file_name, run, step, color, state)
+  draw_sticker(file_name, run, gene, color, state)
 elsif (material == "can_badge")
-  draw_can_badge(file_name, run, step, color, state)
+  draw_can_badge(file_name, run, gene, color, state)
 elsif (material == "t_shirt")
-  draw_t_shirt(file_name, run, step, color, state)
+  draw_t_shirt(file_name, run, gene, color, state)
 elsif ( material == "hoodie")
-  draw_hoodie(file_name, run, step, color, state)
+  draw_hoodie(file_name, run, gene, color, state)
 elsif (material == "handkerchief")
-  draw_handkerchief(file_name, run, step, color, state)
+  draw_handkerchief(file_name, run, gene, color, state)
 end
 
 print %Q{<span style="color:white"}
-ret = suzuri( img_address, run, step, color, material)
+ret = suzuri( img_address, run, gene, color, material)
 print %Q{</span>}
 p ret
 if(ret[0] == "3" || ret[0] == "4" || ret[0] == "5")

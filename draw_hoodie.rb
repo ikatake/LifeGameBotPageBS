@@ -7,7 +7,7 @@ require_relative './draw_rmagick.rb'
 require 'rmagick'
 require 'cgi'
 
-def draw_hoodie(file_name, run, step, color, state)
+def draw_hoodie(file_name, run, gene, color, state)
   #set image file size
   cell_size = 80
   margin_top = 0
@@ -32,7 +32,7 @@ def draw_hoodie(file_name, run, step, color, state)
   #set image width
   str_top = '@_lifegamebot'
   str_bottom1 = "run:#{run}"
-  str_bottom2 = "step:#{step}"
+  str_bottom2 = "gene:#{gene}"
   str_length = [str_top.length, str_bottom1.length, str_bottom2.length].max
   str_width = width_char * str_length + margin_right
   img_width = [(margin_left + cell_field_size + margin_right), str_width].max 

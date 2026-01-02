@@ -3,13 +3,13 @@
 life game bot player<br />
 <img id="stateimg" width="100px" height="100px" /><br />
 run:<input type="text" id="run">
-step:<input type="text" id="step">
+gene:<input type="text" id="gene">
 <input type="button" id="jump" value="jump" onclick="jump()">
 <br />
 <input type="button" id="prev" value="|&lt;|&lt;|" onclick="prev()">
 <input type="button" id="play" value="|&gt;" onclick="play()">
-<input type="button" id="next_step" value="|&gt;|" onclick="increase()">
-<input type="button" id="next_gene" value="|&gt;|&gt;|" onclick="next()">
+<input type="button" id="next_gene" value="|&gt;|" onclick="increase()">
+<input type="button" id="next_run" value="|&gt;|&gt;|" onclick="next()">
 <input type="button" id="shuffle" value="shuffle off" onclick="shuffle()">
 <input type="button" id="repeat" value="repeat off" onclick="repeat()">
 </div>

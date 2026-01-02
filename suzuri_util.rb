@@ -4,7 +4,7 @@ require 'json';
 require 'faraday'
 
 
-def suzuri(img_path, run, step, color, material)
+def suzuri(img_path, run, gene, color, material)
   conn = Faraday::Connection.new(:url => 'https://suzuri.jp/', :ssl => {:version => "SSLv23"}) do |builder|
     builder.use Faraday::Request::UrlEncoded
     builder.use Faraday::Response::Logger
@@ -12,8 +12,8 @@ def suzuri(img_path, run, step, color, material)
   end
 
   key = '3df61022350585b2e5a2890ef9cdd2201ef5897c50f655cd618fe90b8bac3c76'
-  title = '"@_lifegamebot r:' + run.to_s + ' s:' + step.to_s + '"'
-  description = '"@_lifegamebot r:' + run.to_s + ' s:' + step.to_s +
+  title = '"@_lifegamebot r:' + run.to_s + ' g:' + gene.to_s + '"'
+  description = '"@_lifegamebot r:' + run.to_s + ' g:' + gene.to_s +
     ' ' + material + '(' + color + ')"'
   texture = '"' + img_path + '"'
 
@@ -97,10 +97,10 @@ def send_sticker_test()
     request.headers['Authorization'] = 'Bearer 3df61022350585b2e5a2890ef9cdd2201ef5897c50f655cd618fe90b8bac3c76'
     request.headers['Content-Type'] = 'application/json'
     request.body = '{
-      "title": "@_lifegamebot r:1 s:1",
+      "title": "@_lifegamebot r:1 g:1",
       "texture": "http://www.wetsteam.org/lifegamebot/tmpimg/1_1.png",
       "price": 0,
-      "description": "@_lifegamebot r:1 s:1 sticker",
+      "description": "@_lifegamebot r:1 g:1 sticker",
       "products": 
       [{
         "itemId": 11,
