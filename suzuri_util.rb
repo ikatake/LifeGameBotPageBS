@@ -2,6 +2,7 @@
 
 require 'json';
 require 'faraday'
+require_relative 'suzuri_config'
 
 
 def suzuri(img_path, run, gene, color, material)
@@ -11,7 +12,7 @@ def suzuri(img_path, run, gene, color, material)
     builder.use Faraday::Adapter::NetHttp
   end
 
-  key = '**REMOVED**'
+  key = SUZURI_API_KEY
   title = '"@_lifegamebot r:' + run.to_s + ' g:' + gene.to_s + '"'
   description = '"@_lifegamebot r:' + run.to_s + ' g:' + gene.to_s +
     ' ' + material + '(' + color + ')"'
