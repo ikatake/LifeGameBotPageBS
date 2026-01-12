@@ -55,5 +55,21 @@ def draw_hoodie(file_name, run, gene, color, state)
     margin_left, y_bottom_text1, font, color_front, 'transparent', font_size)
   annotate(img, str_bottom2, width_char * str_bottom2.length, height_text,
     margin_left, y_bottom_text2, font, color_front, 'transparent', font_size)
-  img.write(file_name)
+  
+  # RMagickからChunkyPNGに変換して保存
+  require 'chunky_png'
+  width = img.columns
+  height = img.rows
+  chunky_img = ChunkyPNG::Image.new(width, height)
+  (0...height).each do |y|
+    (0...width).each do |x|
+      pixel = img.pixel_color(x, y)
+      r = (pixel.red / 257).to_i
+      g = (pixel.green / 257).to_i
+      b = (pixel.blue / 257).to_i
+      a = (pixel.opacity / 257).to_i
+      chunky_img[x, y] = ChunkyPNG::Color.rgba(r, g, b, 255 - a)
+    end
+  end
+  chunky_img.save(file_name)
 end

@@ -55,6 +55,21 @@ def draw_can_badge(file_name, run, gene, color, state)
   annotate_on_arc(img, str, width_char * 0.75, radius, img_size / 2, img_size / 2, 
     theta0, font, color_front, 'transparent', font_size* 0.75)
 
-  img.write(file_name)
+  # RMagickからChunkyPNGに変換して保存
+  require 'chunky_png'
+  width = img.columns
+  height = img.rows
+  chunky_img = ChunkyPNG::Image.new(width, height)
+  (0...height).each do |y|
+    (0...width).each do |x|
+      pixel = img.pixel_color(x, y)
+      r = (pixel.red / 257).to_i
+      g = (pixel.green / 257).to_i
+      b = (pixel.blue / 257).to_i
+      a = (pixel.opacity / 257).to_i
+      chunky_img[x, y] = ChunkyPNG::Color.rgba(r, g, b, 255 - a)
+    end
+  end
+  chunky_img.save(file_name)
 end
 
