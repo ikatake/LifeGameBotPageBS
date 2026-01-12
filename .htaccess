@@ -1,1 +1,6 @@
 AddHandler cgi-script .cgi .rb
+
+# Suzuri設定ファイルへのアクセスを拒否
+<Files "suzuri_config.rb">
+    Require all denied
+</Files>
