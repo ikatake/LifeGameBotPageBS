@@ -72,7 +72,7 @@ state = get_state_text(run, gene)
 file_name = "product_img/" + material + "_" + run.to_s + "_" + gene.to_s + "_"
 file_name += Time.now.to_i.to_s + ".png"
 	p file_name
-img_address = "http://www.wetsteam.org/lifegamebot/" + file_name
+img_address = "http://www.wetsteam.org/LifeGameBotBS/" + file_name
 hs = {"run" => run, "gene" => gene, "state" => state,
   "color" => color, "material" => material}
 if (material == "sticker")
