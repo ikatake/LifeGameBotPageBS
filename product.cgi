@@ -15,7 +15,7 @@ require 'date'
 include Math
 
 cgi = CGI.new
-print "Content-Type: text/html\n\n"
+print "Content-Type: text/html; charset=UTF-8\n\n"
 print "<html><head><title>Now making...Please wait.</title></head><body>\n"
 text = CGI.escapeHTML cgi["t"]
 print text
