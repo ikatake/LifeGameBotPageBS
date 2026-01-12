@@ -1,0 +1,112 @@
+
+ id name                                                                       humanizeName
+ -- ----                                                                       ------------
+158 lunch-tote-bag                                                             ランチトートバッグ
+883 d-factory-6-6oz-premium-comfort-sleeveless-for-shop                        D-FACTORY 6.6oz プレミアムコンフォートノースリーブ
+147 acrylic-keychain                                                           アクリルキーホルダー
+895 motteru-tr-1201-kururito-daily-bag-for-shop                                MOTTERU クルリト デイリーバッグ TR-1201
+766 acrylic-panel                                                              アクリルパネル
+159 acrylic-stand                                                              アクリルスタンド
+881 cotton-frill-drawstring-pouch-s-for-shop                                   コットンフリル巾着（S）
+884 eva-clear-pouch-m-for-shop                                                 EVAクリアポーチ（M）
+891 maruman-croquisbook-sq-for-shop                                            マルマン クロッキーブック 白クロッキー紙 （SQ）
+892 maruman-sketchbook-b6-for-shop                                             マルマン 図案スケッチブック B6
+894 mesh-pocket-sacoche-for-shop                                               メッシュポケットサコッシュ
+885 fairtrade-cotton-canvas-zip-pouch-m-for-shop                               フェアトレードコットンキャンバスファスナーポーチ（M）
+150 long-sized-water-glass                                                     ロンググラス
+880 american-apparel-6-0oz-heavy-weight-cotton-long-sleeve-t-shirt-for-shop    American Apparel 6.0oz ヘビーウェイトコットン長袖Tシャツ
+887 glimmer-4-4oz-dry-long-sleeve-t-shirt-for-shop                             GLIMMER 4.4oz ドライ 長袖Tシャツ
+882 cross-stitch-open-end-max-weight-mens-over-t-shirt-for-shop                Cross Stitch オープンエンドマックスウェイト メンズオーバーTシャツ
+889 glimmer-4-4oz-dry-zip-parka-for-shop                                       GLIMMER 4.4oz ドライジップパーカー
+888 glimmer-4-4oz-dry-polo-shirt-for-shop                                      GLIMMER 4.4oz ドライポロシャツ
+890 glimmer-dry-half-pants-for-shop                                            GLIMMER ドライハーフパンツ
+893 mesh-flat-poly-pouch-s-for-shop                                            メッシュフラットポリポーチ（S）
+886 fairtrade-cotton-canvas-zip-pouch-s-for-shop                               フェアトレードコットンキャンバスファスナーポーチ（S）
+ 15 long-sleeve-t-shirt                                                        ロングスリーブTシャツ
+  1 t-shirt                                                                    スタンダードTシャツ
+160 ankle-socks                                                                くるぶしソックス
+100 big-t-shirt                                                                ビッグシルエットTシャツ
+106 big-long-sleeve-t-shirt                                                    ビッグシルエットロングスリーブTシャツ
+107 bandana                                                                    バンダナ
+294 android-smartphone-case                                                    スマホケース（Android）
+ 21 acrylic-block                                                              アクリルブロック
+ 18 clear-smartphone-case                                                      クリアスマホケース
+ 13 blanket                                                                    ブランケット
+151 cushion                                                                    クッション
+102 bucket-hat                                                                 バケットハット
+ 17 can-badge                                                                  缶バッジ
+112 dry-t-shirt                                                                ドライTシャツ
+ 11 sticker                                                                    ステッカー
+896 organic-cotton-net-drawstring-pouch-m-for-shop                             オーガニックコットンネット巾着（M）
+ 23 book-style-smartphone-case                                                 手帳型スマホケース
+103 clear-multi-case                                                           クリアマルチケース
+733 desk-calendar                                                              卓上カレンダー
+101 clear-file-folder                                                          クリアファイル
+ 96 big-hoodie                                                                 ビッグシルエットパーカー
+ 62 big-shoulder-bag                                                           ビッグショルダーバッグ
+ 95 big-sweat                                                                  ビッグシルエットスウェット
+360 lightweight-t-shirt                                                        ライトウェイトTシャツ
+228 flat-can-case                                                              フラット缶ケース
+152 heavyweight-hoodie                                                         ヘビーウェイトパーカー
+154 heavyweight-sweat                                                          ヘビーウェイトスウェット
+148 heavyweight-t-shirt                                                        ヘビーウェイトTシャツ
+153 heavyweight-zip-hoodie                                                     ヘビーウェイトジップパーカー
+  9 hoodie                                                                     パーカー
+ 61 kinchaku                                                                   きんちゃく
+ 99 five-panel-cap                                                             ジェットキャップ
+426 flat-pouch                                                                 フラットポーチ
+327 embroidered-fleece-jacket                                                  刺しゅうフリースジャケット
+155 embroidered-t-shirt                                                        刺しゅうTシャツ
+  8 full-graphic-t-shirt                                                       フルグラフィックTシャツ
+393 face-towel                                                                 フェイスタオル
+110 full-graphic-mask                                                          フルグラフィックマスク
+104 mini-clear-multi-case                                                      ミニクリアマルチケース
+  3 mug                                                                        マグカップ
+ 10 note                                                                       ノート
+111 organic-cotton-t-shirt                                                     オーガニックコットンTシャツ
+162 one-point-t-shirt                                                          ワンポイントTシャツ
+149 oversized-t-shirt                                                          オーバーサイズTシャツ
+ 16 sacoche                                                                    サコッシュ
+847 printstar-5-8oz-long-sleeve-polo-shirt-pocket-for-shop                     Printstar 5.8oz 長袖ポロシャツ（ポケット付）
+897 printstar-5-8oz-basic-polo-shirt-for-shop                                  Printstar 5.8oz ベーシックポロシャツ
+261 masking-tape                                                               マスキングテープ
+  4 smartphone-case                                                            スマホケース（iPhone）
+195 smartphone-strap                                                           スマホストラップ
+ 98 soft-clear-smartphone-case                                                 ソフトクリアスマホケース
+161 socks                                                                      ソックス
+108 reusable-bag                                                               エコバッグ
+902 shaka-wear-7-5oz-heavy-weight-t-shirt-for-shop                             SHAKA WEAR 7.5oz ヘビーウェイトTシャツ
+901 shaka-wear-7-5oz-drop-shoulder-t-shirt-for-shop                            SHAKA WEAR 7.5oz ドロップショルダーTシャツ
+898 printstar-reflex-sports-vest-for-shop                                      Printstar リフレクスポーツベスト
+899 ripstop-mini-sacoche-for-shop                                              リップミニサコッシュ
+900 satin-frill-drawstring-pouch-s-for-shop                                    サテンフリル巾着（S）
+105 sandal                                                                     サンダル
+908 united-athle-10-0oz-sweat-bib-ura-pile-for-shop                            United Athle 10.0oz スウェット スタイ（裏パイル）
+  5 sweat                                                                      スウェット
+ 14 towel-handkerchief                                                         タオルハンカチ
+  2 tote-bag                                                                   トートバッグ
+109 thermo-tumbler                                                             サーモタンブラー
+ 20 tarpaulin                                                                  吸着ポスター
+910 united-athle-4-1oz-dry-athletic-t-shirt-for-shop                           United Athle 4.1oz ドライアスレチックTシャツ
+903 truss-8-1oz-usa-cotton-t-shirt-for-shop                                    TRUSS 8.1oz USAコットンTシャツ
+916 united-athle-9-1oz-magnum-weight-big-silhouette-t-shirt-for-shop           United Athle 9.1oz マグナムウェイトビッグシルエットTシャツ
+906 united-athle-10-0oz-big-silhouette-sweat-pullover-parka-ura-pile-for-shop  United Athle 10.0oz ビッグシルエット スウェット プルオーバー パーカー（裏パイル）
+905 united-athle-10-0oz-big-silhouette-sweat-fullzip-parka-ura-pile-for-shop   United Athle 10.0oz ビッグシルエット スウェット フルジップ パーカー（裏パイル）
+904 united-athle-10-0oz-big-silhouette-crewneck-sweat-ura-pile-for-shop        United Athle 10.0oz ビッグシルエット クルーネック スウェット（裏パイル）
+913 united-athle-7-0oz-smooth-raglan-sleeve-track-jacket-for-shop              United Athle 7.0oz スムース ラグランスリーブ トラック ジャケット
+907 united-athle-10-0oz-cotton-jersey-loosefit-cardigan-for-shop               United Athle 10.0oz コットン ジャージー ルーズフィット カーディガン
+914 united-athle-7-0oz-smooth-track-pants-for-shop                             United Athle 7.0oz スムース トラック パンツ
+909 united-athle-4-1oz-dry-athletic-baseball-shirt-for-shop                    United Athle 4.1oz ドライアスレチック ベースボールシャツ
+915 united-athle-8-2oz-sweat-shorts-ura-pile-for-shop                          United Athle 8.2oz スウェット ショーツ（裏パイル）
+911 united-athle-4-4oz-dry-smooth-recycled-polyester-shorts-for-shop           United Athle 4.4oz ドライスムースリサイクルポリエステルショーツ
+912 united-athle-4-4oz-dry-smooth-recycled-polyester-sleeveless-shirt-for-shop United Athle 4.4oz ドライスムース リサイクルポリエステル スリーブレスシャツ
+ 28 zip-hoodie                                                                 ジップパーカー
+ 97 water-glass                                                                グラス
+922 washed-canvas-cross-apron-for-shop                                         ウォッシュキャンバスエプロン（クロスタイプ）
+921 united-athle-t-c-coach-jacket-for-shop                                     United Athle T/Cコーチジャケット
+917 united-athle-cottonlike-nylon-training-jacket-lined-for-shop               United Athle コットンライク ナイロン トレーニング ジャケット（裏地付）
+918 united-athle-cottonlike-nylon-training-pants-for-shop                      United Athle コットンライク ナイロン トレーニング パンツ
+919 united-athle-micro-ripstop-event-blouson-for-shop                          United Athle マイクロリップストップ イベント ブルゾン（一重）
+920 united-athle-nylon-easy-shorts-for-shop                                    United Athle ナイロンイージーショーツ
+
+
